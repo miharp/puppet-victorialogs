@@ -1,0 +1,16 @@
+{
+  "puppet_task_version": 1,
+  "description": "Return the installed version of victoria-logs-prod or vlagent-prod on a target",
+  "parameters": {
+    "component": {
+      "description": "Which component to check: 'victorialogs' or 'vlagent'",
+      "type": "Optional[Enum['victorialogs', 'vlagent']]"
+    }
+  },
+  "implementations": [
+    {
+      "name": "installed_version.sh",
+      "requirements": ["shell"]
+    }
+  ]
+}

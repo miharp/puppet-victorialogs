@@ -1,0 +1,29 @@
+<%- |
+  String[1]            $service_name,
+  String[1]            $user,
+  String[1]            $group,
+  Stdlib::Absolutepath $binary_path,
+  Array[String]        $args,
+  Integer              $limit_nofile,
+| -%>
+# Managed by Puppet — do not edit manually
+[Unit]
+Description=vlagent <%= $service_name %>
+After=network.target
+
+[Service]
+Type=simple
+User=<%= $user %>
+Group=<%= $group %>
+ExecStart=<%= $binary_path %><% unless $args.empty { %> \
+<% } %><%= $args.join(" \\\n  ") %>
+Restart=always
+LimitNOFILE=<%= $limit_nofile %>
+PrivateTmp=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+ProtectSystem=full
+SyslogIdentifier=<%= $service_name %>
+
+[Install]
+WantedBy=multi-user.target

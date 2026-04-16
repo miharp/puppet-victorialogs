@@ -1,0 +1,16 @@
+{
+  "puppet_task_version": 1,
+  "description": "Return the latest VictoriaLogs (or vlagent) release version from GitHub",
+  "parameters": {
+    "component": {
+      "description": "Which component to query: 'victorialogs' or 'vlagent'",
+      "type": "Optional[Enum['victorialogs', 'vlagent']]"
+    }
+  },
+  "implementations": [
+    {
+      "name": "latest_version.sh",
+      "requirements": ["shell"]
+    }
+  ]
+}
