@@ -1,0 +1,20 @@
+{
+  "puppet_task_version": 1,
+  "description": "End-to-end smoke test: inserts a log line via the Elasticsearch bulk API and queries it back via LogsQL to verify the full read/write path",
+  "parameters": {
+    "port": {
+      "description": "HTTP port VictoriaLogs is listening on (default: 9428)",
+      "type": "Optional[Integer]"
+    },
+    "timeout": {
+      "description": "Seconds to wait for the inserted log to appear in query results (default: 15)",
+      "type": "Optional[Integer]"
+    }
+  },
+  "implementations": [
+    {
+      "name": "smoke_test.sh",
+      "requirements": ["shell"]
+    }
+  ]
+}

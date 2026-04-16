@@ -1,0 +1,10 @@
+.bundle/
+vendor/
+spec/fixtures/
+Gemfile.lock
+pkg/
+.vagrant/
+.kitchen/
+REFERENCE.md
+bolt-project.yaml
+inventory.yaml
